@@ -22,6 +22,7 @@
     "typescript": "^5.2.2"
   },
   "engines": {
+    "start": "ts-node app.ts",
     "node": "20.x"
   }
 }

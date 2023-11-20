@@ -13,13 +13,12 @@ const getAccountByHaveVoucher = (haveVoucher: string, accounts: IAccount[]) =>
 
 const ordersAccountsByName = (accounts: IAccount[]) =>
   accounts.sort(({ name }, { name: nameToCompare }) => {
-    if (name < nameToCompare) {
-      return -1;
-    } else if (name > nameToCompare) {
-      return 1;
-    } else {
-      return 0;
-    }
+    
+    if (name < nameToCompare) return -1;
+
+    if (name > nameToCompare) return 1;
+
+    return 0;
   });
 
 const reduceByDistance = (branches: IBranch[]) =>
@@ -34,13 +33,11 @@ const orderAccountsByDistance = (accounts: IAccount[]) =>
     const branchA = reduceByDistance(branchesA);
     const branchB = reduceByDistance(branchesB);
 
-    if (branchA.location < branchB.location) {
-      return -1;
-    } else if (branchA.location > branchB.location) {
-      return 1;
-    } else {
-      return 0;
-    }
+    if (branchA.location < branchB.location) return -1;
+
+    if (branchA.location > branchB.location) return 1;
+
+    return 0;
   });
 
 const paginateAccounts = (
@@ -56,12 +53,8 @@ const paginateAccounts = (
   return accounts.slice(startIndex, endIndex);
 };
 
-export const getAccounts = () => {
-  const filePath = "./src/files/accounts.json";
-  const data = fs.readFileSync(filePath, "utf-8");
-
-  return JSON.parse(data);
-};
+export const getAccounts = () =>
+  JSON.parse(fs.readFileSync("./src/files/accounts.json", "utf-8"));
 
 export const getFilteredAccounts = (query: any) => {
   const { orderBy, filterByTag, haveVoucher, page, limit }: IQuery = query;

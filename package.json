@@ -2,7 +2,7 @@
   "name": "backend-cln",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
     "start": "ts-node app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,6 @@
     "typescript": "^5.2.2"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   }
 }
